@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Decidim.configure do |config|
-  config.application_name = "My Application Name"
+  config.application_name = "Programas 2019"
   config.mailer_sender = "change-me@domain.org"
 
   # Change these lines to set your preferred locales
@@ -45,3 +45,34 @@ end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+Decidim::Verifications.register_workflow(:participa_authorization_handler) do |workflow|
+  workflow.form = "ParticipaAuthorizationHandler"
+end
+
+proposals = Decidim.find_component_manifest(:proposals)
+
+update_options = proc do |instance|
+  if instance.is_a?(Hash)
+    component = instance[:component]
+    resource = instance[:resource]
+  else
+    component = instance
+    resource = nil
+  end
+  scope = component.participatory_space.scope
+
+  options = scope ? { "scope_#{scope.scope_type.name["en"].parameterize}" => scope.id.to_s } : {}
+
+  permissions = Hash[
+    proposals.actions.map do |action|
+      [action, { "authorization_handler_name" => "participa_authorization_handler", "options" => options }]
+    end
+  ]
+
+  (resource || component).update!(permissions: permissions)
+end
+
+proposals.on(:create, &update_options)
+proposals.on(:update, &update_options)
+proposals.on(:permission_update, &update_options)

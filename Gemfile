@@ -6,21 +6,16 @@ ruby RUBY_VERSION
 
 gem "dotenv-rails", require: "dotenv/rails-now"
 
-gem "decidim", "0.14.3"
-# gem "decidim-consultations", "0.14.3"
-# gem "decidim-initiatives", "0.14.3"
-
 gem "bootsnap", "~> 1.3"
-
+gem "decidim", "0.14.3"
+gem "omniauth-openid"
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
 
-gem "faker", "~> 1.9"
-
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
-
   gem "decidim-dev", "0.14.3"
+  gem "faker", "~> 1.9"
 end
 
 group :development do
