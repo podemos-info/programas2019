@@ -32,3 +32,6 @@
 
 # Ignore public uploads
 public/uploads
+
+# Ignore settings file
+/.env
