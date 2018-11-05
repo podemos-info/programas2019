@@ -16,6 +16,7 @@ group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
   gem "decidim-dev", "0.14.3"
   gem "faker", "~> 1.9"
+  gem "rubocop", require: false
 end
 
 group :development do
