@@ -20,6 +20,7 @@ group :development, :test do
   gem "capistrano-systemd-multiservice", require: false
   gem "decidim-dev", "0.14.3"
   gem "faker", "~> 1.9"
+  gem "pry-rails"
   gem "rubocop", require: false
 end
 
