@@ -14,6 +14,10 @@ gem "uglifier", "~> 4.1"
 
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
+  gem "capistrano", "~> 3.11.0", require: false
+  gem "capistrano-rails", "~> 1.3", require: false
+  gem "capistrano-rvm", require: false
+  gem "capistrano-systemd-multiservice", require: false
   gem "decidim-dev", "0.14.3"
   gem "faker", "~> 1.9"
   gem "rubocop", require: false
