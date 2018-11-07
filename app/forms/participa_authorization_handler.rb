@@ -22,7 +22,7 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
     @scope_types ||= Hash[
       user.organization.scope_types.map do |scope_type|
         [
-          :"scope_#{scope_type.name["es"].parameterize}",
+          :"scope_#{scope_type.name["en"].parameterize}",
           (scope ? scope.part_of_scopes.select { |scope| scope.scope_type == scope_type } .last&.id : nil) || "-1"
         ]
       end
@@ -30,7 +30,7 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def scope
-    user.organization.scopes.find_by(code: vote_town)
+    user.organization.scopes.find_by(code: vote_town[0..4])
   end
 
   def current_metadata

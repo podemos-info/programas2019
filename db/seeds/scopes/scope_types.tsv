@@ -6,3 +6,10 @@ UID	Code	Locale	Singular	Plural
 51	island	es	Islas	Islas
 61	municipality	es	Municipio	Municipios
 69	province	es	Provincia	Provincias
+8	autonomous city	en	Autonomous city	Autonomous cities
+9	autonomous community	en	Autonomous community	Autonomous communities
+30	country	en	Country	Countries
+35	district	en	District	Districts
+51	island	en	Island	Islands
+61	municipality	en	Municipality	Municipalities
+69	province	en	Province	Provinces

@@ -5,7 +5,8 @@ en:
         name: Participa
         explanation: explanation
         fields:
-          scope_autonomy: comunidad autónoma
+          scope_autonomous-city: comunidad autónoma
+          scope_autonomous-community: ciudad autónoma
           scope_province: provincia
           scope_island: isla
-          scope_town: municipio
+          scope_municipality: municipio
