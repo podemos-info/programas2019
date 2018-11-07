@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
+  BLOCKING_ACTIVITY = %w(proposals proposal_votes).freeze
+
   attribute :participa_id, Integer
   attribute :vote_town, String
 
   def metadata
+    return current_metadata if current_metadata && has_activity?
+
     super.merge(participa_id: participa_id, vote_town: vote_town, **scope_types)
   end
 
@@ -27,5 +31,13 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
 
   def scope
     user.organization.scopes.find_by(code: vote_town)
+  end
+
+  def current_metadata
+    @current_metadata ||= Decidim::Authorization.find_by(user: user, name: "participa_authorization_handler")&.metadata
+  end
+
+  def has_activity?
+    @has_activity ||= Decidim::Gamification::BadgeScore.where(badge_name: BLOCKING_ACTIVITY, user: user).sum(:value).positive?
   end
 end
