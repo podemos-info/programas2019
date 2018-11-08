@@ -1,4 +1,7 @@
 en:
+  content_blocks:
+    scoped_highlighted_processes:
+      name: Procesos destacados por ámbito
   decidim:
     authorization_handlers:
       participa_authorization_handler:

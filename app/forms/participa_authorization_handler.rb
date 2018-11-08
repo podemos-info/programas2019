@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
+  include ParticipaContext
+
   BLOCKING_ACTIVITY = %w(proposals proposal_votes).freeze
 
   attribute :participa_id, Integer
@@ -18,23 +20,21 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
 
   private
 
+  alias current_user user
+
   def scope_types
     @scope_types ||= Hash[
-      user.organization.scope_types.map do |scope_type|
+      current_user.organization.scope_types.map do |scope_type|
         [
           :"scope_#{scope_type.name["en"].parameterize}",
-          (scope ? scope.part_of_scopes.select { |scope| scope.scope_type == scope_type } .last&.id : nil) || "-1"
+          (user_scope ? user_scope.part_of_scopes.select { |scope| scope.scope_type == scope_type } .last&.id : nil) || "-1"
         ]
       end
     ]
   end
 
-  def scope
-    user.organization.scopes.find_by(code: vote_town[0..4])
-  end
-
   def current_metadata
-    @current_metadata ||= Decidim::Authorization.find_by(user: user, name: "participa_authorization_handler")&.metadata
+    @current_metadata ||= authorization&.metadata
   end
 
   def has_activity?

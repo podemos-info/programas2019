@@ -49,3 +49,8 @@ Rails.application.config.i18n.default_locale = Decidim.default_locale
 Decidim::Verifications.register_workflow(:participa_authorization_handler) do |workflow|
   workflow.form = "ParticipaAuthorizationHandler"
 end
+
+Decidim.content_blocks.register(:homepage, :scoped_highlighted_processes) do |content_block|
+  content_block.cell = "content_blocks/scoped_highlighted_processes"
+  content_block.public_name_key = "content_blocks.scoped_highlighted_processes.name"
+end
