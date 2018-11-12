@@ -7,7 +7,7 @@ ruby RUBY_VERSION
 gem "dotenv-rails", require: "dotenv/rails-now"
 
 gem "bootsnap", "~> 1.3"
-gem "decidim", "0.14.3"
+gem "decidim", "0.15.0"
 gem "omniauth-openid"
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
@@ -18,7 +18,7 @@ group :development, :test do
   gem "capistrano-rails", "~> 1.3", require: false
   gem "capistrano-rvm", require: false
   gem "capistrano-systemd-multiservice", require: false
-  gem "decidim-dev", "0.14.3"
+  gem "decidim-dev", "0.15.0"
   gem "faker", "~> 1.9"
   gem "pry-rails"
   gem "rubocop", require: false
