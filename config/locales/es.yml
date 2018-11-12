@@ -1,4 +1,4 @@
-en:
+es:
   content_blocks:
     scoped_highlighted_processes:
       name: Procesos destacados por ámbito
@@ -6,7 +6,7 @@ en:
     authorization_handlers:
       participa_authorization_handler:
         name: Participa
-        explanation: explanation
+        explanation: explicación
         fields:
           scope_autonomous-city: comunidad autónoma
           scope_autonomous-community: ciudad autónoma
