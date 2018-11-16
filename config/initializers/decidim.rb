@@ -50,7 +50,14 @@ Decidim::Verifications.register_workflow(:participa_authorization_handler) do |w
   workflow.form = "ParticipaAuthorizationHandler"
 end
 
-Decidim.content_blocks.register(:homepage, :scoped_highlighted_processes) do |content_block|
-  content_block.cell = "content_blocks/scoped_highlighted_processes"
-  content_block.public_name_key = "content_blocks.scoped_highlighted_processes.name"
+Decidim.content_blocks.register(:homepage, :scoped_processes) do |content_block|
+  content_block.cell = "content_blocks/scoped_processes"
+  content_block.public_name_key = "content_blocks.scoped_processes.name"
+
+  content_block.settings_form_cell = "content_blocks/scoped_processes_form"
+
+  content_block.settings do |settings|
+    settings.attribute :show_unscoped, type: :boolean
+    settings.attribute :max_results, type: :integer, default: 4
+  end
 end

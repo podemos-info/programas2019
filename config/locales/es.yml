@@ -1,7 +1,9 @@
 es:
   content_blocks:
-    scoped_highlighted_processes:
-      name: Procesos destacados por ámbito
+    scoped_processes:
+      name: Procesos por ámbito
+      show_unscoped: Mostrar procesos sin ámbito
+      title: Procesos relevantes para tu ubicacíon
   decidim:
     authorization_handlers:
       participa_authorization_handler:

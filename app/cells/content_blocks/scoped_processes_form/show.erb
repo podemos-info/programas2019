@@ -1,0 +1,4 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.check_box :show_unscoped, label: show_unscoped_label %>
+  <%= settings_fields.select :max_results, [4, 8, 12], prompt: "", label: label %>
+<% end %>
