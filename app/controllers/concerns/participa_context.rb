@@ -13,7 +13,7 @@ module ParticipaContext
   end
 
   def vote_town
-    @vote_town ||= authorization&.metadata["vote_town"]
+    @vote_town ||= authorization&.metadata&.fetch("vote_town")
   end
 
   def authorization
