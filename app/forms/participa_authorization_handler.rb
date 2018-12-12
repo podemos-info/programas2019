@@ -14,10 +14,6 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
     super.merge(participa_id: participa_id, vote_town: vote_town, **scope_types)
   end
 
-  def unique_id
-    participa_id
-  end
-
   private
 
   alias current_user user
