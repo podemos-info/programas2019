@@ -16,7 +16,7 @@ module ContentBlocks
       @processes_query ||= begin
         ret = Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user) |
               Decidim::ParticipatoryProcesses::FilteredParticipatoryProcesses.new("active")
-        ret |= scoped_query if user_scope
+        ret |= scoped_query
         ret = ret.query.limit(max_results)
 
         if user_scope

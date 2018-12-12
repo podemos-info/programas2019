@@ -20,6 +20,6 @@ class ScopedParticipatoryProcesses < Rectify::Query
   private
 
   def searched_scopes
-    @searched_scopes ||= @scope.part_of_scopes.map(&:id).tap { |scopes| scopes.prepend(nil) if @show_unscoped }
+    @searched_scopes ||= Array(@scope&.part_of_scopes&.map(&:id)).tap { |scopes| scopes.prepend(nil) if @show_unscoped }
   end
 end
