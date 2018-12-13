@@ -16,4 +16,4 @@ set :rvm_custom_path, "/usr/share/rvm"
 set :branch, ENV["BRANCH"] || "master"
 
 after "deploy:publishing", "systemd:puma:restart"
-
+after "deploy:publishing", "systemd:sidekiq:restart"

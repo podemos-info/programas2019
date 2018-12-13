@@ -1,0 +1,9 @@
+---
+:queues:
+  - conference_diplomas
+  - default
+  - events
+  - mailers
+  - metrics
+  - newsletter
+  - newsletters_opt_in

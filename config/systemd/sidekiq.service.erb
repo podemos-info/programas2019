@@ -1,0 +1,28 @@
+[Unit]
+Description = <%= fetch(:application) %>'s sidekiq daemon
+After = network.target
+
+[Service]
+# Foreground process (do not use --daemon in ExecStart or config.rb)
+Type = simple
+
+# The path to the puma application root
+Environment = RAILS_ENV=<%= fetch(:rails_env) %>
+Environment = PWD=<%= current_path %>
+WorkingDirectory = <%= current_path %>
+
+# The command to start Puma. This variant uses a binstub generated via
+ExecStart = <%= SSHKit.config.command_map[:rvm] %> default do <%= shared_path %>/sbin/sidekiq -e <%= fetch(:rails_env) %>
+
+# Greatly reduce Ruby memory fragmentation and heap usage
+# https://www.mikeperham.com/2018/04/25/taming-rails-memory-bloat/
+Environment=MALLOC_ARENA_MAX=2
+
+# if we crash, restart
+RestartSec=1
+Restart=on-failure
+
+PIDFile = <%= current_path %>/tmp/pids/sidekiq.pid
+
+[Install]
+WantedBy = default.target

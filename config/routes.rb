@@ -1,7 +1,10 @@
-Rails.application.routes.draw do
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
+# frozen_string_literal: true
 
-  mount Decidim::Core::Engine => '/'
+require "sidekiq/web"
+
+Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount Decidim::Core::Engine => "/"
+
+  mount Sidekiq::Web => "/queues"
 end

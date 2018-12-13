@@ -41,6 +41,7 @@ require "capistrano/rails/migrations"
 
 require "capistrano/systemd/multiservice"
 install_plugin Capistrano::Systemd::MultiService.new_service("puma", service_type: "user")
+install_plugin Capistrano::Systemd::MultiService.new_service("sidekiq", service_type: "user")
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

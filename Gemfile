@@ -11,6 +11,7 @@ gem "bootsnap", "~> 1.3"
 gem "decidim", "0.15.1"
 gem "omniauth-openid"
 gem "puma", "~> 3.0"
+gem "sidekiq"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
