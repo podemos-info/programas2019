@@ -15,3 +15,7 @@ es:
           scope_province: provincia
           scope_island: isla
           scope_municipality: municipio
+  participa:
+    errors:
+      missing_phone: Debes completar y verificar tu teléfono en Participa para poder continuar.
+      not_verified: Debes verificar tu identidad en Participa para poder continuar.

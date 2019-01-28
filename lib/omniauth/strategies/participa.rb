@@ -10,7 +10,7 @@ module OmniAuth
 
       option :name, :participa
       option :client_options, {}
-      option :required, %w(email first_name last_name town)
+      option :required, %w(email first_name last_name town phone verified)
 
       uid do
         raw_info[:id]
@@ -20,7 +20,9 @@ module OmniAuth
         {
           email: raw_info[:email],
           name: raw_info[:name],
-          vote_town: raw_info[:vote_town]
+          vote_town: raw_info[:vote_town],
+          phone: raw_info[:phone],
+          verified: raw_info[:verified]
         }
       end
 
@@ -29,7 +31,9 @@ module OmniAuth
           id: openid_response.identity_url.split("/").last,
           email: message.get_arg("http://openid.net/extensions/sreg/1.1", "email"),
           name: anonymized_name,
-          vote_town: message.get_arg("http://openid.net/extensions/sreg/1.1", "town")
+          vote_town: message.get_arg("http://openid.net/extensions/sreg/1.1", "town"),
+          phone: message.get_arg("http://openid.net/extensions/sreg/1.1", "phone"),
+          verified: message.get_arg("http://openid.net/extensions/sreg/1.1", "verified")
         }
       end
 
@@ -52,6 +56,6 @@ end
 # Add extra fields to SReg
 module OpenID
   module SReg
-    DATA_FIELDS.merge!("town" => "Town", "first_name" => "First Name", "last_name" => "Last name")
+    DATA_FIELDS.merge!("town" => "Town", "first_name" => "First Name", "last_name" => "Last name", "phone" => "Phone", "verified" => "Verified")
   end
 end
