@@ -3,7 +3,7 @@ es:
     scoped_processes:
       name: Procesos por ámbito
       show_unscoped: Mostrar procesos sin ámbito
-      title: Procesos relevantes para tu ubicacíon
+      title: Procesos relevantes para tu ubicación
   decidim:
     authorization_handlers:
       participa_authorization_handler:
@@ -15,6 +15,13 @@ es:
           scope_province: provincia
           scope_island: isla
           scope_municipality: municipio
+    data_portability:
+      show:
+        download_data_description: Se enviará un archivo con toda la actividad realizada en esta web a <strong>%{user_email}</strong>
+    devise:
+      sessions:
+        new:
+          sign_in_disabled: Utiliza tu cuenta del portal de participación de Podemos para participar.
   participa:
     errors:
       missing_phone: Debes completar y verificar tu teléfono en Participa para poder continuar.
