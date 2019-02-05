@@ -54,7 +54,7 @@ Decidim.content_blocks.register(:homepage, :scoped_processes) do |content_block|
   content_block.cell = "content_blocks/scoped_processes"
   content_block.public_name_key = "content_blocks.scoped_processes.name"
 
-  content_block.settings_form_cell = "content_blocks/scoped_processes_form"
+  content_block.settings_form_cell = "content_blocks/scoped_processes_settings_form"
 
   content_block.settings do |settings|
     settings.attribute :show_unscoped, type: :boolean
