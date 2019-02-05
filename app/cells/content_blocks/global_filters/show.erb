@@ -1,0 +1,76 @@
+<section class="wrapper-home global-filters" style="background-image:url(<%= background_image %>);">
+  <div class="row columns">
+  <%= form_tag(decidim.search_path, method: :get, id: "form-global-search") do %>
+    <div class="row medium-up-3 filter-lists">
+      <div class="column">
+        <h2><%= t('content_blocks.global_filters.scope_type') %></h2>
+        <ul>
+          <% scope_types.each do |scope_type| %>
+            <li>
+              <%= label_tag do %>
+                <%= radio_button_tag :scope_type, "##{scope_type}" %>
+                <span><%= "##{scope_type}" %></span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column">
+        <h2><%= t('content_blocks.global_filters.topic_group') %></h2>
+        <ul class="vertical tabs" id="topic_groups" data-tabs>
+          <% topic_groups.each do |topic_group, info| %>
+            <li class="tabs-title">
+              <a href="#<%= topic_group %>" data-tabs-target="<%= topic_group %>"><%= "#{info[:name]}" %></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="column tabs-content" data-tabs-content="topic_groups">
+        <h2><%= t('content_blocks.global_filters.topic') %></h2>
+        <% topic_groups.each_with_index do |topic_group, i| %>
+          <ul class="tabs-panel" id="<%= topic_group.first %>">
+            <% topic_group.last[:topics].each do |topic| %>
+              <li>
+                <%= label_tag do %>
+                  <%= radio_button_tag :topic, "##{topic}" %>
+                  <span><%= "##{topic}" %></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="row medium-up-3">
+      <div class="column align-bottom">
+        <p>
+          <% if translated_description.present? %>
+            <%= decidim_sanitize translated_description %>
+          <% end %>
+        </p>
+      </div>
+      <div class="column">
+        <p></p>
+      </div>
+      <div class="column text-right align-bottom">
+        <%= button_tag :buscar, class: "button large button--sc" %>
+      </div>
+    </div>
+  <% end %>
+</section>
+
+<script type="text/javascript">
+$('#form-global-search').submit(function() {
+  var scope_type = $('input:checked[name=scope_type]');
+  var topic = $('ul:visible input:checked[name=topic]');
+  var term = [scope_type.val(), topic.val()].filter(Boolean).join(" ");
+
+  if (term == "") return false;
+
+  $('<input />').attr('type', 'hidden')
+                .attr('name', "term")
+                .attr('value', term)
+                .appendTo('#form-global-search');
+  return true;
+});
+</script>

@@ -62,6 +62,41 @@ Decidim.content_blocks.register(:homepage, :scoped_processes) do |content_block|
   end
 end
 
+Decidim.content_blocks.register(:homepage, :global_filters) do |content_block|
+  content_block.cell = "content_blocks/global_filters"
+  content_block.public_name_key = "content_blocks.global_filters.name"
+
+  content_block.settings_form_cell = "content_blocks/global_filters_settings_form"
+
+  content_block.images = [
+    {
+      name: :background_image,
+      uploader: "Decidim::HomepageImageUploader"
+    }
+  ]
+  content_block.settings do |settings|
+    settings.attribute :scope_types, type: :string, translated: false
+    settings.attribute :topic_group1_name, type: :text, translated: true
+    settings.attribute :topic_group1_topics, type: :string, translated: false
+    settings.attribute :topic_group2_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group2_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group3_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group3_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group4_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group4_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group5_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group5_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group6_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group6_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group7_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group7_topics, type: :string, translated: false, required: false
+    settings.attribute :topic_group8_name, type: :text, translated: true, required: false
+    settings.attribute :topic_group8_topics, type: :string, translated: false, required: false
+
+    settings.attribute :description, type: :text, translated: true
+  end
+end
+
 Decidim::ParticipatoryProcesses::Permissions.class_eval do
   def cannot_view_private_space
     return unless process.private_space

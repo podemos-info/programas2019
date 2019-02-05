@@ -1,0 +1,26 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.text_field :scope_types, label: scope_types_label %>
+
+  <%= settings_fields.translated :text_field, :topic_group1_name, label: topic_group1_name_label %>
+  <%= settings_fields.text_field :topic_group1_topics, label: topic_group1_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group2_name, label: topic_group2_name_label %>
+  <%= settings_fields.text_field :topic_group2_topics, label: topic_group2_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group3_name, label: topic_group3_name_label %>
+  <%= settings_fields.text_field :topic_group3_topics, label: topic_group3_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group4_name, label: topic_group4_name_label %>
+  <%= settings_fields.text_field :topic_group4_topics, label: topic_group4_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group5_name, label: topic_group5_name_label %>
+  <%= settings_fields.text_field :topic_group5_topics, label: topic_group5_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group6_name, label: topic_group6_name_label %>
+  <%= settings_fields.text_field :topic_group6_topics, label: topic_group6_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group7_name, label: topic_group7_name_label %>
+  <%= settings_fields.text_field :topic_group7_topics, label: topic_group7_topics_label %>
+  <%= settings_fields.translated :text_field, :topic_group8_name, label: topic_group8_name_label %>
+  <%= settings_fields.text_field :topic_group8_topics, label: topic_group8_topics_label %>
+
+  <%= settings_fields.translated :text_area, :description, label: description_label %>
+<% end %>
+
+<% form.fields_for :images, form.object.images do |images_fields| %>
+  <%= images_fields.upload :background_image, label: background_image_label %>
+<% end %>

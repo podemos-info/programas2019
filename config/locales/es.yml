@@ -1,5 +1,28 @@
 es:
   content_blocks:
+    global_filters:
+      background_image: Imagen de fondo
+      description: Descripción
+      name: Filtros globales
+      scope_type: Ámbito territorial
+      topic: Temática
+      topic_group: Eje temático
+      topic_group1_name: Eje temático 1
+      topic_group1_topics: Temáticas del eje 1
+      topic_group2_name: Eje temático 2
+      topic_group2_topics: Temáticas del eje 2
+      topic_group3_name: Eje temático 3
+      topic_group3_topics: Temáticas del eje 3
+      topic_group4_name: Eje temático 4
+      topic_group4_topics: Temáticas del eje 4
+      topic_group5_name: Eje temático 5
+      topic_group5_topics: Temáticas del eje 5
+      topic_group6_name: Eje temático 6
+      topic_group6_topics: Temáticas del eje 6
+      topic_group7_name: Eje temático 7
+      topic_group7_topics: Temáticas del eje 7
+      topic_group8_name: Eje temático 8
+      topic_group8_topics: Temáticas del eje 8
     scoped_processes:
       name: Procesos por ámbito
       show_unscoped: Mostrar procesos sin ámbito
