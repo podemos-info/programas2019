@@ -22,5 +22,5 @@
 <% end %>
 
 <% form.fields_for :images, form.object.images do |images_fields| %>
-  <%= images_fields.upload :background_image, label: background_image_label %>
+  <%= images_fields.upload :background_image %>
 <% end %>

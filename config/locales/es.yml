@@ -1,10 +1,10 @@
 es:
   content_blocks:
     global_filters:
-      background_image: Imagen de fondo
       description: Descripción
       name: Filtros globales
       scope_type: Ámbito territorial
+      scope_types: Ámbitos territoriales
       topic: Temática
       topic_group: Eje temático
       topic_group1_name: Eje temático 1

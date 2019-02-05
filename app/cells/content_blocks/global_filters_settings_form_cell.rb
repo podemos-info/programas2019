@@ -79,9 +79,5 @@ module ContentBlocks
     def description_label
       I18n.t("content_blocks.global_filters.description")
     end
-
-    def background_image_label
-      I18n.t("content_blocks.global_filters.background_image")
-    end
   end
 end
