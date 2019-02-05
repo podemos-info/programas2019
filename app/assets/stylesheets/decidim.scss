@@ -61,10 +61,6 @@ $secondary3: #a7e6d9;
   min-height: 14rem;
 }
 
-a[href="/authorizations"]{
-  display: none;
-}
-
-a[href="/user_interests"]{
+a[href="/authorizations"], a[href="/user_interests"], a.change-password{
   display: none;
 }
