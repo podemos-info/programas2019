@@ -23,6 +23,9 @@ es:
       topic_group7_topics: Temáticas del eje 7
       topic_group8_name: Eje temático 8
       topic_group8_topics: Temáticas del eje 8
+    how_to_participate:
+      access: Regístrate
+      access_explanation: Accede con tu cuenta verificada del portal participación de Podemos.
     scoped_processes:
       name: Procesos por ámbito
       show_unscoped: Mostrar procesos sin ámbito
