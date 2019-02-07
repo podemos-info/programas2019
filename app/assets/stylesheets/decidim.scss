@@ -57,10 +57,16 @@ $secondary3: #a7e6d9;
   margin-bottom: -.15rem;
 }
 
-.process-header__container{
-  min-height: 14rem;
+.hero::after {
+  background-color: rgba(255,255,255,0.4);
 }
 
-a[href="/authorizations"], a[href="/user_interests"], a.change-password{
+.process-header__container{
+  min-height: 14rem;
+
+  a { color: $secondary3 }
+}
+
+a[href*="/authorizations"], a[href*="/user_interests"], a[href*="/open-data/download"], a.change-password{
   display: none;
 }

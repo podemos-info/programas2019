@@ -28,13 +28,13 @@
           padding: 0.5rem 1.5rem;
           font-size: 1rem;
           line-height: 1.1rem;
-          color: black;
+          color: #3d393c;
           font-weight: 100;
         }
 
         span:hover, input[type=radio]:checked + span, &.tabs-title > a:hover, &.tabs-title > a:focus, &.tabs-title > a[aria-selected="true"] {
-          color: black;
-          background: rgba(201,160,206,0.5);
+          color: #3d393c;
+          background: rgba(255,255,255,0.5);
         }
       }
     }
