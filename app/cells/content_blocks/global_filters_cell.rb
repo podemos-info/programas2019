@@ -6,6 +6,12 @@ module ContentBlocks
   class GlobalFiltersCell < Decidim::ViewModel
     include Decidim::SanitizeHelper
 
+    def show
+      return unless current_user
+
+      render
+    end
+
     def scope_types
       @scope_types ||= (model.settings.scope_types || "").split(" ")
     end
