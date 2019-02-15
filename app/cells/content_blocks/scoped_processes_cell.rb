@@ -6,6 +6,10 @@ module ContentBlocks
   class ScopedProcessesCell < Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCell
     delegate :user_scope, to: :controller
 
+    def show
+      render if processes.any?
+    end
+
     def processes
       @processes ||= processes_query
     end
