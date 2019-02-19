@@ -67,6 +67,7 @@ $secondary3: #a7e6d9;
   a { color: $secondary3 }
 }
 
-a[href*="/authorizations"], a[href*="/user_interests"], a[href*="/open-data/download"], a.change-password{
+a[href*="/authorizations"], a[href*="/user_interests"], a[href*="/open-data/download"], a.change-password,
+.not-logged .main-nav a[href*="/processes"]{
   display: none;
 }
