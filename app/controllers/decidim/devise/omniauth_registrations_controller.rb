@@ -8,13 +8,17 @@ module Decidim
     OmniauthRegistrationsController.class_eval do
       skip_before_action :verify_authenticity_token, only: :participa
 
+      before_action do
+        check_valid_user? && accept_invitation
+      end
+
       after_action do
-        Decidim::Verifications::AuthorizeUser.call(handler) if valid_user?
+        Decidim::Verifications::AuthorizeUser.call(handler)
       end
 
       private
 
-      def valid_user?
+      def check_valid_user?
         if phone.blank?
           error = :missing_phone
         elsif !verified?
@@ -22,13 +26,23 @@ module Decidim
         end
 
         if error
-          flash.delete(:notice)
           flash[:error] = I18n.t("participa.errors.#{error}")
-          sign_out current_user
-          return false
+          redirect_to(root_path)
+          false
+        else
+          true
         end
+      end
 
-        true
+      def accept_invitation
+        return unless invited_user
+
+        invited_user.accept_invitation
+        invited_user.confirm unless invited_user.confirmed?
+      end
+
+      def invited_user
+        @invited_user ||= Decidim::User.where.not(invitation_token: nil).find_by(email: email)
       end
 
       def handler
@@ -45,6 +59,10 @@ module Decidim
 
       def phone
         @phone ||= oauth_data.dig(:info, :phone)
+      end
+
+      def email
+        @email ||= oauth_data[:info][:email]
       end
 
       def verified?
