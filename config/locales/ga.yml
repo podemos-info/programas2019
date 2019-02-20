@@ -1,0 +1,69 @@
+ga:
+  content_blocks:
+    global_filters:
+      description: Descrición
+      name: Filtros globais
+      scope_type: Ámbito territorial
+      scope_types: Ámbitos territoriais
+      search: Buscar
+      topic: Tema
+      topic_group: Eixe temático
+      topic_group1_name: Eixe temático 1
+      topic_group1_topics: Temas do eixe 1
+      topic_group2_name: Eixe temático 2
+      topic_group2_topics: Temas do eixe 2
+      topic_group3_name: Eixe temático 3
+      topic_group3_topics: Temas do eixe 3
+      topic_group4_name: Eixe temático 4
+      topic_group4_topics: Temas do eixe 4
+      topic_group5_name: Eixe temático 5
+      topic_group5_topics: Temas do eixe 5
+      topic_group6_name: Eixe temático 6
+      topic_group6_topics: Temas do eixe 6
+      topic_group7_name: Eixe temático 7
+      topic_group7_topics: Temas do eixe 7
+      topic_group8_name: Eixe temático 8
+      topic_group8_topics: Temas do eixe 8
+    how_to_participate:
+      access: Rexístrate
+      access_explanation: Accede coa túa conta verificada do portal de Participación de Podemos.
+    scoped_processes:
+      name: Procesos por ámbito
+      show_unscoped: Mostrar procesos sen ámbito
+      title: Procesos relevantes para a túa situación
+  decidim:
+    authorization_handlers:
+      participa_authorization_handler:
+        name: Participa
+        explanation: Se non o fixeches xa, debes inscribirte e verificar previamente a túa identidade no portal de Participación.
+        fields:
+          scope_autonomous-city: cidade autónoma
+          scope_autonomous-community: comunidade autónoma
+          scope_province: provincia
+          scope_island: illa
+          scope_municipality: municipio
+    authorization_modals:
+      show:
+        unauthorized:
+          explanation: Non podes participar en procesos que non se desenvolveran no lugar onde te inscribiche.
+          invalid_field: "O teu %{field} no portal de Participación non coincide co deste proceso."
+          title: Territorio incorrecto
+    data_portability:
+      show:
+        download_data_description: Enviarase un arquivo con toda a actividade realizada nesta web a <strong>%{user_email}</strong>
+    devise:
+      sessions:
+        new:
+          sign_in_disabled: Utiliza a túa conta do portal de Participación de Podemos para colaborar.
+    pages:
+      home:
+        extended:
+          how_to_participate: Como participo nun proceso?
+          proposals_explanation: Fai propostas, apoia as existentes e promove as iniciativas que desexas facer realidade.
+    participatory_processes:
+      show:
+        private_space: Este é un espazo de confianza para a participación dos inscritos e as inscritas en Podemos.
+  participa:
+    errors:
+      missing_phone: Debes completar e verificar o teu teléfono en Participa para poder continuar.
+      not_verified: Debes verificar a túa identidade en Participa para poder continuar.

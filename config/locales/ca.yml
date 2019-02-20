@@ -1,0 +1,69 @@
+ca:
+  content_blocks:
+    global_filters:
+      description: Descripció
+      name: Filtres globals
+      scope_type: Àmbit territorial
+      scope_types: Àmbits territorials
+      search: Cercar
+      topic: Tema
+      topic_group: Eix temàtic
+      topic_group1_name: Eix temàtic 1
+      topic_group1_topics: Temes de l’eix 1
+      topic_group2_name: Eix temàtic 2
+      topic_group2_topics: Temes de l’eix 2
+      topic_group3_name: Eix temàtic 3
+      topic_group3_topics: Temes de l’eix 3
+      topic_group4_name: Eix temàtic 4
+      topic_group4_topics: Temes de l’eix 4
+      topic_group5_name: Eix temàtic 5
+      topic_group5_topics: Temes de l’eix 5
+      topic_group6_name: Eix temàtic 6
+      topic_group6_topics: Temes de l’eix 6
+      topic_group7_name: Eix temàtic 7
+      topic_group7_topics: Temes de l’eix 7
+      topic_group8_name: Eix temàtic 8
+      topic_group8_topics: Temes de l’eix 8
+    how_to_participate:
+      access: Registreu-vos
+      access_explanation: Accediu al vostre compte verificat del portal de Participació de Podem.
+    scoped_processes:
+      name: Processos per àmbit
+      show_unscoped: Mostrar processos sense àmbit
+      title: Processos rellevants per la vostra ubicació
+  decidim:
+    authorization_handlers:
+      participa_authorization_handler:
+        name: Participa
+        explanation: Si encara no ho heu fet, heu d’inscriure-us i verificar prèviament la vostra identitat al portal de Participació.
+        fields:
+          scope_autonomous-city: ciutat autònoma
+          scope_autonomous-community: comunitat autònoma
+          scope_province: província
+          scope_island: illa
+          scope_municipality: municipi
+    authorization_modals:
+      show:
+        unauthorized:
+          explanation: No podeu participar en processos que no es desenvolupin en el lloc on us heu inscrit.
+          invalid_field: "El vostre %{field} al portal de Participació no coincideix amb el d’aquest procés."
+          title: Territori incorrecte
+    data_portability:
+      show:
+        download_data_description: S’enviarà un arxiu amb tota l’activitat realitzada en aquest web a  <strong>%{user_email}</strong>
+    devise:
+      sessions:
+        new:
+          sign_in_disabled: Utilitzeu el vostre compte del portal de Participació de Podem per col·laborar.
+    pages:
+      home:
+        extended:
+          how_to_participate: 'Com participo en un procés?'
+          proposals_explanation: Feu propostes, doneu suport a les existents i promoveu les iniciatives que vulgueu fer realitat.
+    participatory_processes:
+      show:
+        private_space: Aquest és un espai de confiança per a la participació dels inscrits i les inscrites en Podem.
+  participa:
+    errors:
+      missing_phone: Heu de completar i verificar el vostre telèfon a Participa per poder continuar.
+      not_verified: Heu de verificar la vostra identitat a Participa per poder continuar.

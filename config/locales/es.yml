@@ -39,10 +39,10 @@ es:
     authorization_handlers:
       participa_authorization_handler:
         name: Participa
-        explanation: Si no lo has hecho ya, debes inscribirte y verificar previamente tu identidad en el portal de Participación
+        explanation: Si no lo has hecho ya, debes inscribirte y verificar previamente tu identidad en el portal de Participación.
         fields:
-          scope_autonomous-city: comunidad autónoma
-          scope_autonomous-community: ciudad autónoma
+          scope_autonomous-city: ciudad autónoma
+          scope_autonomous-community: comunidad autónoma
           scope_province: provincia
           scope_island: isla
           scope_municipality: municipio
@@ -51,7 +51,6 @@ es:
         unauthorized:
           explanation: No puedes participar en procesos que no se desarrollen en el lugar donde te has inscrito.
           invalid_field: "Tu %{field} en el portal de Participación no coincide con el de este proceso."
-          ok: De acuerdo
           title: Territorio incorrecto
     data_portability:
       show:

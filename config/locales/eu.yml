@@ -1,0 +1,87 @@
+eu:
+  content_blocks:
+    global_filters:
+      description: Deskribapena
+      name: Iragazki orokorrak
+      scope_type: Lurralde-eremua
+      scope_types: Lurralde-eremuak
+      search: Bilatu
+      topic: Gaia
+      topic_group: Gaikako ardatza
+      topic_group1_name: 1. gaikako ardatza
+      topic_group1_topics: 1. ardatzeko gaiak
+      topic_group2_name: 2. gaikako ardatza
+      topic_group2_topics: 2. ardatzekp gaiak
+      topic_group3_name: 3. gaikako ardatza
+      topic_group3_topics: 3. ardatzekp gaiak
+      topic_group4_name: 4. gaikako ardatza
+      topic_group4_topics: 4. ardatzekp gaiak
+      topic_group5_name: 5. gaikako ardatza
+      topic_group5_topics: 5. ardatzekp gaiak
+      topic_group6_name: 6. gaikako ardatza
+      topic_group6_topics: 6. ardatzekp gaiak
+      topic_group7_name: 7. gaikako ardatza
+      topic_group7_topics: 7. ardatzekp gaiak
+      topic_group8_name: 8. gaikako ardatza
+      topic_group8_topics: 8. ardatzekp gaiak
+    how_to_participate:
+      access: Eman izena
+      access_explanation: Sartu Ahal Dugu-ren Parte-hartzea atariko kontu egiaztatuarekin.
+    scoped_processes:
+      name: Prozesuak, eremuaren arabera
+      show_unscoped: Erakutsi prozesuak, eremurik gabe
+      title: Zure kokapenerako funtsezkoak diren prozesuak
+  decidim:
+    authorization_handlers:
+      participa_authorization_handler:
+        name: Participa
+        explanation: Oraindik ez baduzu egin, eman izena eta egiaztatu zure nortasuna Parte-hartzea atarian.
+        fields:
+          scope_autonomous-city: autonomoa-hiria
+          scope_autonomous-community: autonomia-erkidegoa
+          scope_province: probintzia
+          scope_island: uhartea
+          scope_municipality: udalerria
+    authorization_modals:
+      show:
+        unauthorized:
+          explanation: Ezin duzu parte hartu izena eman duzun lekukoak ez diren prozesuetan.
+          invalid_field: "Parte-hartzea atariko zure %{field} ez dator bat prozesu honenarekin."
+          title: Lurralde okerra
+    data_portability:
+      show:
+        download_data_description: "Web honetan izandako jarduera guztiaren artxibo bat bidaliko zaio honi: <strong>%{user_email}</strong>"
+    devise:
+      sessions:
+        new:
+          sign_in_disabled: Erabili Parte-hartzea atariko zure kontua, elkarlanerako.
+    pages:
+      home:
+        extended:
+          how_to_participate: 'Nola har dezaket parte prozesu batean?'
+          proposals_explanation: Egin proposamenak, babestu lehendik daudenak, eta sustatu zure ekimenak.
+    participatory_processes:
+      show:
+        private_space: Hau konfiantza-espazioa da Ahal Dugu-n izena emandakoen parte-hartzerako.
+  participa:
+    errors:
+      missing_phone: Jarraitu ahal izateko, Hartu Parte-ko zure telefonoa osatu eta egiaztatu behar duzu.
+      not_verified: Jarraitu ahal izateko, Hartu Parte-ko zure nortasuna egiaztatu behar duzu.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
