@@ -2,9 +2,24 @@
 
 Decidim::ParticipatoryProcesses::Permissions.class_eval do
   def cannot_view_private_space
-    return unless process.private_space
+    !can_view_private_space?
+  end
 
-    !(user && (user.admin || process.users.none? || process.users.include?(user)))
+  def can_view_private_space?
+    return true unless process.private_space
+    return false unless user
+
+    user.admin || process.users.none? || process.users.include?(user)
+  end
+end
+
+Decidim::ParticipatorySpaceContext.module_eval do
+  def current_user_can_visit_space?
+    return true unless current_participatory_space.try(:private_space?) &&
+                       !current_participatory_space.try(:is_transparent?)
+    return false unless current_user
+
+    current_user.admin || current_participatory_space.users.none? || current_participatory_space.users.include?(current_user)
   end
 end
 
@@ -22,20 +37,30 @@ Decidim::ParticipatoryProcess.class_eval do
 
   def can_participate?(user)
     return true unless private_space?
-    return true if user && (users.none? || users.include?(user))
+    return false unless user
 
-    false
+    users.none? || users.include?(user)
   end
 end
 
-Decidim::ParticipatorySpaceContext.module_eval do
-  def current_user_can_visit_space?
-    current_user&.admin ||
-      (current_participatory_space.try(:private_space?) &&
-       (current_participatory_space.users.none? ||
-        current_participatory_space.users.include?(current_user))) ||
-      !current_participatory_space.try(:private_space?) ||
-      (current_participatory_space.try(:private_space?) &&
-       current_participatory_space.try(:is_transparent?))
+Decidim::Meetings::Meeting.class_eval do
+  def can_participate?(user)
+    can_participate_space?(user) && can_participate_meeting?(user)
+  end
+
+  private
+
+  def can_participate_space?(user)
+    return true unless participatory_space.try(:private_space?)
+    return false unless user
+
+    participatory_space.users.none? || participatory_space.users.include?(user)
+  end
+
+  def can_participate_meeting?(user)
+    return true unless private_meeting?
+    return false unless user
+
+    registrations.exists?(decidim_user_id: user.id)
   end
 end
