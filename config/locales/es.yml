@@ -2,7 +2,7 @@ es:
   activemodel:
     attributes:
       participatory_process:
-        private_space: Solo para usuarios registrados
+        private_space: Solo para personas registradas
   content_blocks:
     global_filters:
       description: Descripción

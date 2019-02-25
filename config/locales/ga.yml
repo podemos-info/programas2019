@@ -1,4 +1,8 @@
 ga:
+  activemodel:
+    attributes:
+      participatory_process:
+        private_space: Só persoas rexistradas
   content_blocks:
     global_filters:
       description: Descrición

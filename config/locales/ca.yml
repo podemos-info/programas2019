@@ -1,4 +1,8 @@
 ca:
+  activemodel:
+    attributes:
+      participatory_process:
+        private_space: Només persones registrades
   content_blocks:
     global_filters:
       description: Descripció

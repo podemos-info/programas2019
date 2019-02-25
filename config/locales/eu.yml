@@ -1,4 +1,8 @@
 eu:
+  activemodel:
+    attributes:
+      participatory_process:
+        private_space: Izena emandako pertsonak soilik
   date:
     formats:
       decidim_short: "%Y/%m/%d"
@@ -70,27 +74,12 @@ eu:
     participatory_processes:
       show:
         private_space: Hau konfiantza-espazioa da Ahal Dugu-n izena emandakoen parte-hartzerako.
+    profiles:
+      show:
+        timeline: Denbora lerroa
     search:
       term_input_placeholder: Bilatu
   participa:
     errors:
       missing_phone: Jarraitu ahal izateko, Hartu Parte-ko zure telefonoa osatu eta egiaztatu behar duzu.
       not_verified: Jarraitu ahal izateko, Hartu Parte-ko zure nortasuna egiaztatu behar duzu.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
