@@ -12,7 +12,7 @@ update_options = proc do |instance|
   end
   scope = component.participatory_space.scope
 
-  options = scope ? { "scope_#{scope.scope_type.name["en"].parameterize}" => scope.id.to_s } : {}
+  options = scope ? { "scope_type_#{scope.scope_type_id}" => scope.id.to_s } : {}
 
   permissions = Hash[
     proposals.actions.map do |action|

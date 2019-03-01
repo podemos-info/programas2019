@@ -22,7 +22,7 @@ class ParticipaAuthorizationHandler < Decidim::AuthorizationHandler
     @scope_types ||= Hash[
       current_user.organization.scope_types.map do |scope_type|
         [
-          :"scope_#{scope_type.name["en"].parameterize}",
+          :"scope_type_#{scope_type.id}",
           (user_scope ? user_scope.part_of_scopes.select { |scope| scope.scope_type == scope_type } .last&.id.to_s : nil) || "-1"
         ]
       end
